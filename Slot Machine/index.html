@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-container">
+
+   
+    <div class="slot-machine-container">
+        <div class="slot-machine">
+            <div class="reel" id="reel1"></div>
+            <div class="reel" id="reel2"></div>
+            <div class="reel" id="reel3"></div>
+        </div>
+
+        <button id="spin">Spin</button>
+
+        <div id="message"></div>
+
+       
+        <div id="resultModal" class="modal" aria-hidden="true">
+            <div class="modal-content">
+                <h2 id="modalTitle">Result</h2>
+                <p id="modalBody"> </p>
+                <button id="closeModal">Close</button>
+            </div>
+        </div>
+
+        <table class="payout-table" aria-label="Payouts">
+            <caption>PAYOUTS</caption>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Coins</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Diamond</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>Emerald</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Gold Ingot</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>Coal</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Iron Ingot</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>Copper Ingot</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>Netherite Scrap</td>
+                    <td>750</td>
+                </tr>
+                <tr class="tnt-payout">
+                    <td>TNT</td>
+                    <td>- (special)</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+<div class="player-info">
+
+    <h2>PLAYER INFO</h2>
+
+   
+    <div class="info-box">
+        <img src="images/coin.png" alt="Coins">
+        <div>
+            <p>Coins</p>
+            <span id="coins">1000</span>
+        </div>
+    </div>
+
+   
+    <div class="info-box">
+        <img src="images/Fire.webp" alt="Fire">
+        <div>
+            <p>Win Streak</p>
+            <span id="streak">0</span>
+        </div>
+    </div>
+
+  
+    <div class="player-section payout-section">
+        <label for="betAmount"> Bet Amount</label>
+        <select id="betAmount">
+            <option value="10">P10 Coins</option>
+            <option value="25">P25 Coins</option>
+            <option value="50" selected>P50 Coins</option>
+            <option value="100">P100 Coins</option>
+            <option value="250">P250 Coins</option>
+        </select>
+    </div>
+
+   
+    <div class="player-section">
+        <label for="insertCoins"> Insert Coins</label>
+        <input type="number" id="insertCoins" min="10" placeholder="Enter amount">
+        <button id="addCoins">Add Coins</button>
+    </div>
+
+  
+    <div class="player-section">
+        <button id="autoSpinBtn">Auto Spin</button>
+        <div style="font-size:12px; opacity:.85; margin-top:6px;">
+            Click to start/stop auto spinning.
+        </div>
+    </div>
+
+
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

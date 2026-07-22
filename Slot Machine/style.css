@@ -1,0 +1,492 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:url("./images/waybout.png") center/cover no-repeat;
+    height: 120vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+}
+
+/* ======================= */
+/* LAYOUT */
+/* ======================= */
+
+.game-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+}
+
+/* ======================= */
+/* SLOT MACHINE */
+/* ======================= */
+
+.slot-machine-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.slot-machine{
+
+    display:flex;
+    gap:20px;
+
+    padding:20px;
+
+    border:4px solid #555;
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+        inset 2px 2px #999,
+        inset -2px -2px #222,
+        0 8px 15px rgba(0,0,0,.5);
+}
+
+.reel{
+
+    width:120px;
+    height:120px;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+.reel img{
+
+    width:100px;
+    height:100px;
+}
+
+/* ======================= */
+/* SPIN BUTTON */
+/* ======================= */
+
+#spin{
+
+    margin-top:20px;
+
+    padding:12px 35px;
+
+    font-size:22px;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(#8d8d8d,#555);
+
+    border:3px solid #2d2d2d;
+
+    box-shadow:
+        inset 2px 2px #bdbdbd,
+        inset -2px -2px #333,
+        0 5px #222;
+
+    transition:.15s;
+}
+
+#spin:hover{
+
+    transform:translateY(-2px);
+
+    background:linear-gradient(#999,#666);
+}
+
+#spin:active{
+
+    transform:translateY(3px);
+
+    box-shadow:
+        inset 2px 2px #333,
+        inset -2px -2px #bdbdbd,
+        0 2px #222;
+}
+
+/* ======================= */
+/* PLAYER INFO */
+/* ======================= */
+
+.player-info{
+
+    width:250px;
+    height:auto;
+    min-height:390px;
+
+    /* Keep this panel visually independent from the slot machine. */
+    margin-left:80px;
+
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    background:rgba(30,30,30,.9);
+
+    /* Pixel-stone frame: outer dark edge, light top/left, and dark bottom/right. */
+    border:4px solid #242424;
+    outline:3px solid #6f6f6f;
+    outline-offset:0;
+
+    box-shadow:
+        inset 4px 4px #a8a8a8,
+        inset -4px -4px #1b1b1b,
+        inset 0 0 0 7px #4c4c4c,
+        0 8px 15px rgba(0,0,0,.6);
+}
+
+.player-info h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    padding-bottom:10px;
+
+    border-bottom:2px solid #666;
+}
+/* ========================= */
+/* PLAYER CONTROLS */
+/* ========================= */
+
+.player-section{
+    margin-top:15px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+
+}
+
+/* Separate frame for the amount selected before a spin. */
+.payout-section{
+    padding:10px;
+    background:rgba(0,0,0,.18);
+    border:2px solid #747474;
+    box-shadow:
+        inset 2px 2px 0 #262626,
+        inset -2px -2px 0 #111;
+}
+
+.payout-section label{
+    color:#ffd54a;
+}
+
+.player-section label{
+    font-size:15px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.player-section select,
+.player-section input{
+    width:100%;
+    padding:8px;
+    font-size:15px;
+    border:2px solid #555;
+    border-radius:4px;
+    background:#2d2d2d;
+    color:white;
+}
+
+.player-section button{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    font-size:16px;
+    cursor:pointer;
+
+    background:linear-gradient(to bottom,#8c8c8c,#5a5a5a);
+
+    color:white;
+
+    border:3px solid #2e2e2e;
+
+    box-shadow:
+        inset 2px 2px 0 #bdbdbd,
+        inset -2px -2px 0 #3a3a3a,
+        0 4px 0 #222;
+
+    transition:.15s;
+}
+
+.player-section button:hover{
+    background:linear-gradient(to bottom,#9d9d9d,#6b6b6b);
+}
+
+.player-section button:active{
+    transform:translateY(2px);
+}
+
+.info-box{
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.info-box img{
+
+    width:45px;
+    height:45px;
+}
+
+.info-box div{
+
+    display:flex;
+    flex-direction:column;
+}
+
+.info-box p{
+
+    font-size:16px;
+    color:#ddd;
+}
+
+.info-box span{
+
+    font-size:22px;
+    font-weight:bold;
+    color:gold;
+}
+
+/* Push buttons down */
+
+.menu-btn:first-of-type{
+
+    margin-top:auto;
+}
+
+.menu-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:15px;
+
+    font-size:18px;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(#777,#555);
+
+    border:3px solid #2d2d2d;
+
+    box-shadow:
+        inset 2px 2px #bdbdbd,
+        inset -2px -2px #333,
+        0 4px #222;
+
+    transition:.15s;
+}
+
+.menu-btn:hover{
+
+    background:linear-gradient(#999,#666);
+}
+
+.menu-btn:active{
+
+    transform:translateY(3px);
+}
+
+/* Player options */
+
+.game-options{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.option-row{
+    min-height:39px;
+    padding:8px 10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+
+    font-size:13px;
+    color:#eee;
+    background:rgba(0,0,0,.2);
+    border:2px solid #444;
+}
+
+.option-row strong{
+    color:gold;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.option-row input,
+.option-row select{
+    width:58px;
+    padding:3px 4px;
+    color:white;
+    background:#333;
+    border:1px solid #888;
+    font:inherit;
+}
+
+.payout-table{
+    width:100%;
+    margin-top:14px;
+    border-collapse:collapse;
+    font-size:12px;
+    text-align:left;
+    
+    backdrop-filter:blur(8px);
+
+}
+
+.payout-table caption{
+    padding:7px;
+    font-weight:bold;
+    background:#444;
+    border:2px solid #777;
+}
+
+.payout-table th,
+.payout-table td{
+    padding:5px 7px;
+    border:1px solid #555;
+}
+
+.payout-table th{
+    color:#ddd;
+    background:#2b2b2b;
+}
+
+.payout-table td:last-child{
+    color:gold;
+    font-weight:bold;
+    text-align:right;
+}
+
+.payout-table .tnt-payout td:last-child{
+    color:#ff7777;
+}
+
+
+#message{
+
+    margin-top:20px;
+
+    font-size:28px;
+    font-weight:bold;
+}
+
+.win{
+    color:lime;
+}
+
+.loss{
+    color:rgb(248, 4, 4);
+}
+
+/* ======================= */
+/* CONFETTI */
+/* ======================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.65);
+    z-index:999;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:min(420px, 90vw);
+    background:rgba(30,30,30,.95);
+    border:4px solid #242424;
+    outline:3px solid #6f6f6f;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.6);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    text-align:center;
+    color:#fff;
+}
+
+.modal-content h2{
+    margin-bottom:10px;
+}
+
+.modal-content p{
+    color:gold;
+    font-weight:bold;
+    margin-bottom:16px;
+}
+
+.modal-content button{
+    width:auto;
+    padding:10px 18px;
+    font-size:16px;
+    cursor:pointer;
+    background:linear-gradient(to bottom,#8c8c8c,#5a5a5a);
+    color:white;
+    border:3px solid #2e2e2e;
+    box-shadow: inset 2px 2px 0 #bdbdbd, inset -2px -2px 0 #3a3a3a, 0 4px 0 #222;
+}
+
+.modal-content button:hover{
+    background:linear-gradient(to bottom,#9d9d9d,#6b6b6b);
+}
+
+.confetti{
+
+    position:absolute;
+
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    animation:fall 1.5s linear infinite;
+}
+
+@keyframes fall{
+
+
+    0%{
+        transform:translateY(-20px) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(100vh) rotate(360deg);
+        opacity:0;
+    }
+}
